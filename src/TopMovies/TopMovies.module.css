@@ -1,0 +1,24 @@
+
+.TopMoviesContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    height: 16rem;;
+    background: cyan;
+    margin-top: 4%;
+    position: relative;
+}
+.TopMoviesContainer .TopMoviesLabel{
+    margin:0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: black;
+    font-weight: bolder;
+}
+
+.MovieName{
+    display: block;
+}

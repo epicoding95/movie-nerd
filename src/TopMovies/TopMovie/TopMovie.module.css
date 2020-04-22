@@ -1,0 +1,10 @@
+.TopMovieContainer{
+    height: 10rem;
+    width: 6rem;
+    background-color: white;
+    margin: 0 20px;
+}
+
+.TopMovieName, .TopMoiveRelease{
+ margin: 0 20px;
+}
