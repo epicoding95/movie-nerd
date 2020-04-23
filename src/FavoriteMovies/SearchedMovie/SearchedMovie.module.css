@@ -20,3 +20,13 @@
 .SearchedMovieOverView{
     margin-left: 5.5rem;
 }
+
+.SearchedMoviesDetails{
+    position: fixed;
+    left: 0;
+    margin-left: 10%;
+    margin-top: 2%;
+    width: 15rem;
+    height: 15rem;
+    border: 1px solid black;
+}

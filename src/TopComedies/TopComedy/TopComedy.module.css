@@ -1,0 +1,15 @@
+.TopComedyContainer{
+    height: 12rem;
+    width: 8rem;
+    background-color: white;
+    margin: 0 20px;
+}
+.TopComedyContainer:hover{
+   cursor:pointer;
+}
+
+.TopComedyName{
+height: 20px;
+text-align: center;
+font-size: 12px;
+}

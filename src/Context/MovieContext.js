@@ -4,7 +4,8 @@ export const MovieContext = createContext();
 const initialState = {
     topMovies: [],
     singleMovie: '',
-    searchedMovies: []
+    searchedMovies: [],
+    comedyMovies: []
 }
 const movieReducer = (state, action) => {
     switch (action.type) {
@@ -19,6 +20,10 @@ const movieReducer = (state, action) => {
         case 'ADD_SEARCHED_MOVIES':
             return {
                 ...initialState, searchedMovies: action.payload.searchedMovies
+            }
+        case 'ADD_COMMEDY_MOVIES':
+            return {
+                ...initialState, comedyMovies: action.payload.comedyMovies
             }
         default: return state
     }
