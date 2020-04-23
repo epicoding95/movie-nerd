@@ -18,7 +18,7 @@ const movieReducer = (state, action) => {
             }
         case 'ADD_SEARCHED_MOVIES':
             return {
-                ...initialState,
+                ...initialState, searchedMovies: action.payload.searchedMovies
             }
         default: return state
     }

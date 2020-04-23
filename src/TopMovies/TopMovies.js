@@ -6,12 +6,10 @@ import { MovieContext } from '../Context/MovieContext';
 const TopMovies = () => {
 
     const { newestState, dispatch } = useContext(MovieContext)
-
     useEffect(() => {
-
         const getTopMovies = async () => {
             try {
-                const data = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=f1569140e4f4f512d0b9df93d35ae121&language=en-US&page=1')
+                const data = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`)
                 console.log(data)
                 const editedData = data.data.results.map((x) => {
                     return {
