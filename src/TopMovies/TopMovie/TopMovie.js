@@ -6,7 +6,7 @@ const TopMovie = ({ image, title, releaseDate }) => {
         <div>
             <div className={classes.TopMovieContainer}>
                 <Link to='/IndividualMovie'>
-                    <img style={{ height: '12rem', width: '8rem' }} src={image} alt='movie-image'></img>
+                    <img style={{ height: '12rem', width: '8rem' }} src={image} alt='movie'></img>
                 </Link>
             </div>
             <div className={classes.TopMovieName}>{title}</div>

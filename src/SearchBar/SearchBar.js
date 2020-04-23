@@ -3,10 +3,13 @@ import classes from './SearchBar.module.css';
 import TextField from '@material-ui/core/TextField';
 import { MovieContext } from '../Context/MovieContext';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 const SearchBar = () => {
+    let history = useHistory();
     const { newestState, dispatch } = useContext(MovieContext)
     const [userInput, setUserInput] = useState('')
     const handleClick = async (e) => {
+        e.preventDefault();
         try {
             const data = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en&query=${userInput}`)
             const cleanedData = data.data.results.map((movie) => {
@@ -16,6 +19,8 @@ const SearchBar = () => {
             })
             console.log(cleanedData, 'cleaned')
             dispatch({ type: 'ADD_SEARCHED_MOVIES', payload: { searchedMovies: cleanedData } })
+            history.push('/FavoriteMovies')
+
         } catch (err) {
             console.log(err, 'error in fetch event')
         }
