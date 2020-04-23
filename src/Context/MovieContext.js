@@ -1,16 +1,16 @@
 import React, { createContext, useReducer } from 'react';
 
-const MovieContext = createContext();
+export const MovieContext = createContext();
 const initialState = {
-    allMovies: [],
+    topMovies: [],
     singleMovie: '',
     searchedMovies: []
 }
 const movieReducer = (state, action) => {
     switch (action.type) {
-        case 'ADD_ALL_MOVIES':
+        case 'ADD_TOP_MOVIES':
             return {
-                ...initialState,
+                ...initialState, topMovies: action.payload.topMovies
             }
         case 'ADD_SINGLE_MOVIE':
             return {
@@ -23,7 +23,7 @@ const movieReducer = (state, action) => {
         default: return state
     }
 }
-const MovieContextProvider = (props) => {
+export const MovieContextProvider = (props) => {
 
     const [newestState, dispatch] = useReducer(movieReducer, initialState)
     return (
@@ -32,5 +32,3 @@ const MovieContextProvider = (props) => {
         </MovieContext.Provider>
     );
 };
-
-export default MovieContextProvider;

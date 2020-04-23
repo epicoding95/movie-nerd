@@ -1,11 +1,16 @@
 import React from 'react';
 import classes from './TopMovie.module.css';
-const TopMovie = (props) => {
+import { Link } from 'react-router-dom'
+const TopMovie = ({ image, title, releaseDate }) => {
     return (
         <div>
-            <div className={classes.TopMovieContainer}></div>
-            <div className={classes.TopMovieName}>movie name</div>
-            <div className={classes.TopMovieRelease}> movie release date</div>
+            <div className={classes.TopMovieContainer}>
+                <Link to='/IndividualMovie'>
+                    <img style={{ height: '12rem', width: '8rem' }} src={image} alt='movie-image'></img>
+                </Link>
+            </div>
+            <div className={classes.TopMovieName}>{title}</div>
+
         </div>
     );
 };
