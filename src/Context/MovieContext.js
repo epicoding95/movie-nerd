@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from 'react';
 export const MovieContext = createContext();
 const initialState = {
     topMovies: [],
-    singleMovie: '',
+    individualMovieDetails: {},
     searchedMovies: [],
     comedyMovies: []
 }
@@ -13,9 +13,9 @@ const movieReducer = (state, action) => {
             return {
                 ...initialState, topMovies: action.payload.topMovies
             }
-        case 'ADD_SINGLE_MOVIE':
+        case 'ADD_INDIVIDUAL_MOVIE_DETAILS':
             return {
-                ...initialState,
+                ...initialState, individualMovieDetails: action.payload.individualMovieDetails
             }
         case 'ADD_SEARCHED_MOVIES':
             return {

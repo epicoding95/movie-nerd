@@ -1,0 +1,34 @@
+.IndividualMovieContainer{
+    margin-top: 50px;
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    background-color:var(--my-color-var)
+}
+
+.IndividualMovieImage{
+    align-self: center;
+    width: 200px;
+    height: 70%;
+    margin-left: 50px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 5px;
+    z-index:1;
+}
+.IndividualMovieDetails{
+    display: flex;
+     align-self: center;
+    flex-direction: column;
+    margin: 0px 20px;
+    border: 1px solid yellow;
+    justify-content: space-between;
+    height: 50%;
+}
+
+.IndividualMovieTitle{
+    font-weight: bolder;
+    font-size: 32px;
+}

@@ -12,10 +12,10 @@ const TopMovies = ({ urlMatch }) => {
         const getTopMovies = async () => {
             try {
                 const data = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`)
-                console.log(data)
+                console.log(data, 'all data top movies')
                 const editedData = data.data.results.map((x) => {
                     return {
-                        id: Math.random(), image: x.poster_path, title: x.title, releaseDate: x.release_date
+                        id: x.id, image: x.poster_path, title: x.title, releaseDate: x.release_date
                     }
                 })
                 console.log(editedData, 'editedData')
