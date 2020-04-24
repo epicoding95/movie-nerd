@@ -13,9 +13,10 @@ function App() {
       <MovieContextProvider>
         <BrowserRouter>
           <Switch>
-            <IndividualMovie path='/IndividualMovie' component={IndividualMovie} />
             <FavoriteMovies path='/FavoriteMovies' component={FavoriteMovies} />
+            <IndividualMovie path='/Individual/:id' component={IndividualMovie} />
             <HomePage path='/' component={HomePage} />
+            } />
           </Switch>
         </BrowserRouter>
       </MovieContextProvider>

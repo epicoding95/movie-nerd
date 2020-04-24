@@ -4,11 +4,11 @@ import TopMovies from '../TopMovies/TopMovies';
 import classes from './HomePage.module.css';
 import TopComedies from '../TopComedies/TopComedies';
 const HomePage = (props) => {
-    console.log(props, 'home page')
+    const urlMatch = props.computedMatch.url
     return (
         <div className={classes.HomePageContainer}>
             <SearchBar />
-            <TopMovies />
+            <TopMovies urlMatch={urlMatch} />
             {/* <TopComedies /> */}
         </div>
     );

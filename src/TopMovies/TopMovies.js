@@ -3,7 +3,9 @@ import classes from './TopMovies.module.css';
 import TopMovie from './TopMovie/TopMovie';
 import axios from 'axios';
 import { MovieContext } from '../Context/MovieContext';
-const TopMovies = () => {
+import { useHistory, useLocation } from 'react-router-dom';
+const TopMovies = ({ urlMatch }) => {
+    const history = useHistory()
 
     const { newestState, dispatch } = useContext(MovieContext)
     useEffect(() => {
@@ -27,7 +29,7 @@ const TopMovies = () => {
         getTopMovies();
     }, [dispatch])
 
-    console.log(newestState, 'newestState   ')
+
     return (
         <>
             <div className={classes.TopMoviesLabel}>Top Movies</div>
@@ -41,6 +43,7 @@ const TopMovies = () => {
                         image={'https://image.tmdb.org/t/p/w500' + movie.image}
                         title={movie.title}
                         releaseDate={movie.releaseDate}
+                        urlMatch={urlMatch}
                     />
                 })}
 

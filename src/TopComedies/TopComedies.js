@@ -30,8 +30,6 @@ const TopComedies = () => {
         <>
             <div className={classes.TopComediesLabel}>Top Comedies</div>
             <div className={classes.TopComediesContainer}>
-
-
                 {newestState.comedyMovies.map(movie => {
                     return <TopComedy
                         key={Math.random()}
