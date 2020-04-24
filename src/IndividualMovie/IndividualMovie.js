@@ -13,26 +13,6 @@ const IndividualMovie = (props) => {
     console.log(filtered, 'filtered')
 
 
-    const styles = {
-        background: {
-            marginTop: '50px',
-            width: '100 %',
-            height: '60vh',
-            position: 'relative',
-            boxSizing: 'border-box',
-            display: 'flex',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)'
-        },
-        '&:before': {
-            content: `''`,
-            position: 'absolute',
-            backgroundImage: `linear - gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://image.tmdb.org/t/p/w500'${newestState.individualMovieDetails.logoImage})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            zIndex: '1',
-            opacity: '0.6'
-        }
-    }
     useEffect(() => {
         const getIndividualDetails = async () => {
             const response = await axios.get(`https://api.themoviedb.org/3/movie/${paramsId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
@@ -45,18 +25,24 @@ const IndividualMovie = (props) => {
                 filteredData['title'] = response.data.title
                 filteredData['genre'] = response.data.genres[0].name
                 filteredData['overview'] = response.data.overview
-                filteredData['runtime'] = response.data.runtime
+                filteredData['runtime'] = +response.data.runtime
                 filteredData['release'] = response.data.release_date
+                filteredData['releaseYear'] = response.data.release_date.slice(0, 4)
+                filteredData['voteAverage'] = response.data.vote_average
             }
             dispatch({ type: 'ADD_INDIVIDUAL_MOVIE_DETAILS', payload: { individualMovieDetails: filteredData } })
         }
         getIndividualDetails();
     }, [])
-
-    console.log(newestState, 'neweststate individual')
+    let { backdropImage, logoImage, title, genre, overview, runtime, release, releaseYear, voteAverage } = newestState.individualMovieDetails;
+    if (voteAverage) {
+        voteAverage *= 10
+        console.log(voteAverage)
+    }
     return (
         <div style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.5)" + ',' + 'rgba(255,255,255,0.5))' + ',' + "url(" + "https://image.tmdb.org/t/p/w500" + newestState.individualMovieDetails.backdropImage + ")", backgroundPosition: 'center',
+            backgroundImage: "linear-gradient(rgba(92,151,255,0.6)" + ',' + 'rgba(92,151,255,0.6))' + ',' + "url(" + "https://image.tmdb.org/t/p/w500" + backdropImage + ")",
+            backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             opacity: '.9',
@@ -64,13 +50,18 @@ const IndividualMovie = (props) => {
             className={classes.IndividualMovieContainer}>
             <img
                 className={classes.IndividualMovieImage}
-                src={'https://image.tmdb.org/t/p/w500' + newestState.individualMovieDetails.logoImage}>
+                src={'https://image.tmdb.org/t/p/w500' + logoImage}>
             </img>
             <div className={classes.IndividualMovieDetails}>
-                <div className={classes.IndividualMovieTitle}>{newestState.individualMovieDetails.title}</div>
-                <div> vote average --genreID -- movie length</div>
-                <div>overview</div>
-                <div className={classes.IndividualMovieRelease}>{newestState.individualMovieDetails.release}</div>
+                <div className={classes.IndividualMovieTitle}>{title}({releaseYear})</div>
+                <div className={classes.IndividualMovieBody}> {release} - {genre} - {runtime}</div>
+                <div style={{ display: 'flex' }}>
+                    <div className={classes.VoteAverage}>{voteAverage}%</div>
+                    <div className={classes.VoteAverageText} >Average Vote</div>
+                </div>
+                <strong className={classes.IndividualMovieOverView}>Overview</strong>
+                <div className={classes.IndividualMovieOverViewContinued} >{overview}</div>
+
             </div>
 
         </div>
