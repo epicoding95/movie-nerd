@@ -5,7 +5,8 @@ const initialState = {
     topMovies: [],
     individualMovieDetails: {},
     searchedMovies: [],
-    comedyMovies: []
+    comedyMovies: [],
+    castObject: {}
 }
 const movieReducer = (state, action) => {
     switch (action.type) {
@@ -24,6 +25,10 @@ const movieReducer = (state, action) => {
         case 'ADD_COMMEDY_MOVIES':
             return {
                 ...initialState, comedyMovies: action.payload.comedyMovies
+            }
+        case 'ADD_CAST':
+            return {
+                ...initialState, castArray: action.payload.cast
             }
         default: return state
     }
