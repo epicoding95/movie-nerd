@@ -3,7 +3,6 @@ import classes from './FavoriteMovies.module.css';
 import { MovieContext } from '../Context/MovieContext';
 import SearchedMovie from './SearchedMovie/SearchedMovie';
 import { useHistory } from 'react-router-dom';
-import { } from '../assets/images/nologo.png'
 //should be called searched movies but :(
 const FavoriteMovies = () => {
     const { newestState, dispatch } = useContext(MovieContext)

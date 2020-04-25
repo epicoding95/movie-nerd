@@ -3,9 +3,10 @@ import { MovieContext } from '../Context/MovieContext';
 import classes from './IndividualMovie.module.css';
 import axios from 'axios';
 import Cast from './Cast/Cast';
-import { FORMERR } from 'dns';
+import { useHistory } from 'react-router-dom';
 const IndividualMovie = (props) => {
     const { newestState, dispatch } = useContext(MovieContext)
+    const history = useHistory();
     //name/title/releasedate/genre/length/plot
     console.log(props.computedMatch.params.id, 'id')
     const paramsId = props.computedMatch.params.id
@@ -40,7 +41,6 @@ const IndividualMovie = (props) => {
                     filteredDataForCast['cast'] = responseForCast.data.cast
                 }
                 console.log(filteredDataForCast, 'FILTEREDresponseForCast --------------')
-
                 console.log(responseForCast, 'RESPONSE FOR CAST 23@#@#')
                 dispatch({ type: 'ADD_CAST', payload: { cast: filteredDataForCast } })
                 dispatch({ type: 'ADD_INDIVIDUAL_MOVIE_DETAILS', payload: { individualMovieDetails: filteredData } })
@@ -58,8 +58,15 @@ const IndividualMovie = (props) => {
         voteAverage *= 10
         console.log(voteAverage)
     }
+    let emoji;
+    if (voteAverage > 75) {
+        emoji = '👍'
+    } else {
+        emoji = '💩'
+    }
     return (
         <>
+            <button onClick={() => history.push('/')}>Home Page</button>
             <div style={{
                 backgroundImage: "linear-gradient(rgba(92,151,255,0.6)" + ',' + 'rgba(92,151,255,0.6))' + ',' + "url(" + "https://image.tmdb.org/t/p/w500" + backdropImage + ")",
                 backgroundPosition: 'center',
@@ -77,7 +84,7 @@ const IndividualMovie = (props) => {
                     <div className={classes.IndividualMovieBody}> {release} - {genre} - {runtime}</div>
                     <div style={{ display: 'flex' }}>
                         <div className={classes.VoteAverage}>{voteAverage}%</div>
-                        <div className={classes.VoteAverageText} >Average Vote</div>
+                        <div className={classes.VoteAverageText} >Average Vote {emoji} </div>
                     </div>
                     <strong className={classes.IndividualMovieOverView}>Overview</strong>
                     <div className={classes.IndividualMovieOverViewContinued} >{overview}</div>
