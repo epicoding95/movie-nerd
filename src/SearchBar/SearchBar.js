@@ -8,15 +8,16 @@ const SearchBar = () => {
     let history = useHistory();
     const { newestState, dispatch } = useContext(MovieContext)
     const [userInput, setUserInput] = useState('')
-    const handleClick = async (e) => {
+    const handleClick = async () => {
+
         try {
+
             const data = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en&query=${userInput}`)
             const cleanedData = data.data.results.map((movie) => {
                 return {
                     image: movie.poster_path, title: movie.original_title, releaseDate: movie.release_date, overView: movie.overview
                 }
             })
-            console.log(cleanedData, 'cleaned')
             dispatch({ type: 'ADD_SEARCHED_MOVIES', payload: { searchedMovies: cleanedData } })
             history.push('/FavoriteMovies')
 
@@ -25,7 +26,6 @@ const SearchBar = () => {
         }
     }
 
-    console.log(newestState, 'newests state')
     return (
         <div className={classes.SearchBarContainer}>
             {/* <div className={classes.SearchBarLabel}>Welcome</div> */}
@@ -34,8 +34,15 @@ const SearchBar = () => {
                 <input
                     value={userInput}
                     onChange={(event) => setUserInput(event.target.value)}
-                    className={classes.InputField} placeholder='search for your favorite movies..' />
-                <button onClick={handleClick} type='submit' className={classes.Button}>Search</button>
+                    className={classes.InputField} placeholder='search for your favorite movies..'
+                    onKeyPress={event => {
+                        if (event.key === "Enter") {
+                            handleClick()
+                        }
+                    }}
+                />
+
+                <input onClick={handleClick} value='Search' type='button' className={classes.Button} />
             </div>
         </div>
     );

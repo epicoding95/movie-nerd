@@ -32,7 +32,7 @@
  
 }
 .InputField::-webkit-input-placeholder{
-    padding-left: 20px;
+    padding-left: 0px;
     color: black;
     font-size: .8rem;
     align-content: center;
@@ -59,9 +59,10 @@
 .Button{
     height: 58px;
     width: 100px;
-    background-color: cyan;
+   background: linear-gradient(rgba(92,151,255,1.0),rgba(92,151,255,1.0));
     border-radius: 25%;
     border: none;
     margin-left: -50px;
     margin-bottom: 45px;
+    opacity: 1;
 }

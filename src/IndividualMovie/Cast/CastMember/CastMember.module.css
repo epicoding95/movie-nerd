@@ -1,8 +1,9 @@
 .CastMemberContainer{
     height: 12rem;
     width: 8rem;
-    background-color: white;
+   
     margin: 0 20px;
+
 }
 .CastMemberContainer:hover{
    cursor:pointer;
