@@ -17,6 +17,7 @@ const TopComedies = () => {
                     }
                 })
                 console.log(editedData, 'editedData')
+                localStorage.setItem('TopComedies', JSON.stringify(editedData))
                 dispatch({ type: 'ADD_COMMEDY_MOVIES', payload: { comedyMovies: editedData } })
             }
             catch (err) {
@@ -26,11 +27,15 @@ const TopComedies = () => {
         }
         getTopMovies();
     }, [dispatch])
+
+    let localStorgeData = [];
+    localStorgeData = JSON.parse(localStorage.getItem('TopComedies'))
+    console.log(localStorgeData, 'local comedies')
     return (
         <>
             <div className={classes.TopComediesLabel}>Top Comedies</div>
             <div className={classes.TopComediesContainer}>
-                {newestState.comedyMovies.map(movie => {
+                {localStorgeData.map(movie => {
                     return <TopComedy
                         key={Math.random()}
                         id={movie.id}

@@ -7,6 +7,8 @@ import IndividualMovie from './IndividualMovie/IndividualMovie';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import FavoriteMovies from './FavoriteMovies/FavoriteMovies';
 
+
+
 function App() {
   return (
     <>

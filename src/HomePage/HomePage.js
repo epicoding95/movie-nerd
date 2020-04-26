@@ -9,7 +9,7 @@ const HomePage = (props) => {
         <div className={classes.HomePageContainer}>
             <SearchBar />
             <TopMovies urlMatch={urlMatch} />
-            {/* <TopComedies /> */}
+            <TopComedies />
         </div>
     );
 };

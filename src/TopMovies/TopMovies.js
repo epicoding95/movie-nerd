@@ -4,8 +4,8 @@ import TopMovie from './TopMovie/TopMovie';
 import axios from 'axios';
 import { MovieContext } from '../Context/MovieContext';
 import { useHistory, useLocation } from 'react-router-dom';
+import firebase from 'firebase';
 const TopMovies = ({ urlMatch }) => {
-    const history = useHistory()
 
     const { newestState, dispatch } = useContext(MovieContext)
     useEffect(() => {
@@ -19,6 +19,7 @@ const TopMovies = ({ urlMatch }) => {
                     }
                 })
                 console.log(editedData, 'editedData')
+                localStorage.setItem('topMovies', JSON.stringify(editedData))
                 dispatch({ type: 'ADD_TOP_MOVIES', payload: { topMovies: editedData } })
             }
             catch (err) {
@@ -28,15 +29,15 @@ const TopMovies = ({ urlMatch }) => {
         }
         getTopMovies();
     }, [dispatch])
-
-
+    let storageMovies = [];
+    storageMovies = JSON.parse(localStorage.getItem('topMovies'))
+    console.log(storageMovies)
     return (
         <>
             <div className={classes.TopMoviesLabel}>Top Movies</div>
             <div className={classes.TopMoviesContainer}>
 
-
-                {newestState.topMovies.map(movie => {
+                {storageMovies.map(movie => {
                     return <TopMovie
                         key={Math.random()}
                         id={movie.id}
