@@ -1,0 +1,20 @@
+.CastMemberContainer{
+    height: 12rem;
+    width: 8rem;
+    background-color: white;
+    margin: 0 20px;
+}
+.CastMemberContainer:hover{
+   cursor:pointer;
+}
+
+.RealName{
+height: 20px;
+text-align: center;
+font-size: 1rem;
+}
+.CharacterName{
+    height: 20px;
+text-align: center;
+font-size: .8rem;
+}

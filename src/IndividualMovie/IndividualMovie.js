@@ -41,6 +41,7 @@ const IndividualMovie = (props) => {
                     filteredDataForCast['cast'] = responseForCast.data.cast
                 }
                 console.log(filteredDataForCast, 'FILTEREDresponseForCast --------------')
+                localStorage.setItem('filteredCastArray', JSON.stringify(filteredDataForCast))
                 console.log(responseForCast, 'RESPONSE FOR CAST 23@#@#')
                 dispatch({ type: 'ADD_CAST', payload: { cast: filteredDataForCast } })
                 dispatch({ type: 'ADD_INDIVIDUAL_MOVIE_DETAILS', payload: { individualMovieDetails: filteredData } })

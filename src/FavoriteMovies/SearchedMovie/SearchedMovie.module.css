@@ -4,9 +4,9 @@
     align-items: center;
     justify-content: center;
     width: 50%;
-    height: 8rem;
+    height: 8.2rem;
     background-color: white;
-    box-shadow: 0px 0px 10px gray;
+    box-shadow: 0px 0px 5px gray;
     border-radius: 5px;
     position: relative;
     margin: 20px 0px;
@@ -25,8 +25,8 @@
     position: fixed;
     left: 0;
     margin-left: 10%;
-    margin-top: 2%;
-    width: 15rem;
-    height: 15rem;
+    margin-top: 4%;
+    width: 16rem;
+    height: 20rem;
     border: 1px solid black;
 }
