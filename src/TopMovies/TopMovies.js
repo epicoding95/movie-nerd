@@ -12,13 +12,11 @@ const TopMovies = ({ urlMatch }) => {
         const getTopMovies = async () => {
             try {
                 const data = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`)
-                console.log(data, 'all data top movies')
                 const editedData = data.data.results.map((x) => {
                     return {
                         id: x.id, image: x.poster_path, title: x.title, releaseDate: x.release_date
                     }
                 })
-                console.log(editedData, 'editedData')
                 localStorage.setItem('topMovies', JSON.stringify(editedData))
                 dispatch({ type: 'ADD_TOP_MOVIES', payload: { topMovies: editedData } })
             }
@@ -29,12 +27,12 @@ const TopMovies = ({ urlMatch }) => {
         }
         getTopMovies();
     }, [dispatch])
+
+
     let storageMovies = ['storageMovies'];
     if (localStorage.getItem('topMovies') !== null) {
         storageMovies = JSON.parse(localStorage.getItem('topMovies'));
     }
-
-    console.log(storageMovies)
     return (
         <>
             <div className={classes.TopMoviesLabel}>Top Movies</div>

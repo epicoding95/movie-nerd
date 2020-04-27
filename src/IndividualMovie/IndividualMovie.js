@@ -16,7 +16,7 @@ const IndividualMovie = (props) => {
             try {
                 const response = await axios.get(`https://api.themoviedb.org/3/movie/${paramsId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
                 const responseForCast = await axios.get(`https://api.themoviedb.org/3/movie/${paramsId}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
-                console.log(responseForCast, 'response for cast intiial')
+
                 const filteredData = {};
                 for (let key in response.data) {
                     filteredData['id'] = response.data.id
@@ -35,9 +35,7 @@ const IndividualMovie = (props) => {
                     filteredDataForCast['castId'] = responseForCast.data.id
                     filteredDataForCast['cast'] = responseForCast.data.cast
                 }
-                console.log(filteredDataForCast, 'FILTEREDresponseForCast --------------')
                 localStorage.setItem('filteredCastArray', JSON.stringify(filteredDataForCast.cast))
-                console.log(responseForCast, 'RESPONSE FOR CAST 23@#@#')
                 dispatch({ type: 'ADD_CAST', payload: { cast: filteredDataForCast } })
                 dispatch({ type: 'ADD_INDIVIDUAL_MOVIE_DETAILS', payload: { individualMovieDetails: filteredData } })
 
@@ -52,7 +50,6 @@ const IndividualMovie = (props) => {
     let { backdropImage, logoImage, title, genre, overview, runtime, release, releaseYear, voteAverage } = newestState.individualMovieDetails;
     if (voteAverage) {
         voteAverage *= 10
-        console.log(voteAverage)
     }
     let emoji;
     if (voteAverage > 56) {

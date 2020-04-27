@@ -10,7 +10,6 @@ const Cast = () => {
     let localStorageCast = ['item'];
     if (localStorage.getItem('filteredCastArray') !== null) {
         localStorageCast = JSON.parse(localStorage.getItem('filteredCastArray'))
-        console.log(localStorageCast, 'castdasdasdads')
     }
 
     return (

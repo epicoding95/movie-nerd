@@ -4,7 +4,6 @@ import NoLogo from '../../assets/images/nologo.png'
 
 const SearchedMovie = ({ image, title, releaseDate, overView, howMany }) => {
 
-    console.log(image, 'image in searched movie')
     if (image.toString().includes('null')) {
         image = NoLogo
     }

@@ -38,10 +38,11 @@
  .TopMoviesLabel{
     color: black;
     font-size: 24px;
+    font-weight: bolder;
     align-self:flex-start;
     margin-left: 10%;
     padding-top: 50px;
-    font-weight: normal;
+    font-weight: ;
 }
 
 .MovieName{

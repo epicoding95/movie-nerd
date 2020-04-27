@@ -8,7 +8,6 @@ const FavoriteMovies = () => {
     const { newestState, dispatch } = useContext(MovieContext)
     let history = useHistory();
     const images = { src: '../assets/images/nologo.png' }
-    console.log(newestState, 'neweststa ein favorite movies')
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
