@@ -20,9 +20,7 @@ const FavoriteMovies = () => {
             {newestState.searchedMovies.map((movie) => {
                 return <SearchedMovie
                     key={Math.random()}
-                    image={
-                        movie.image ?
-                            'https://image.tmdb.org/t/p/w500' + movie.image : images.src}
+                    image={'https://image.tmdb.org/t/p/w500' + movie.image}
                     title={movie.title}
                     releaseDate={movie.releaseDate}
                     overView={movie.overView}

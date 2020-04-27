@@ -1,7 +1,11 @@
 import React from 'react';
 import classes from './CastMember.module.css';
 import { Link } from 'react-router-dom'
+import NoLogo from '../../../assets/images/nologo.png'
 const CastMember = ({ id, image, name, character }) => {
+    if (image.toString().includes('null')) {
+        image = NoLogo
+    }
 
 
     return (

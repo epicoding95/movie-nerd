@@ -10,6 +10,7 @@
     border-radius: 5px;
     position: relative;
     margin: 20px 0px;
+    font-weight: normal;
 }
 
 .SearchedResultsTitle{
@@ -28,11 +29,10 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 0.5rem 0.4rem;
-
-
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.SearchedMovieContainer .SeardhedMovieImage{
+.SearchedMovieContainer .SearchedMovieImage{
     position: absolute;
     top:20;
     left: 0;

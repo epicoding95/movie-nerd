@@ -75,6 +75,7 @@ const IndividualMovie = (props) => {
                 className={classes.IndividualMovieContainer}>
                 <img
                     className={classes.IndividualMovieImage}
+                    alt='test'
                     src={'https://image.tmdb.org/t/p/w500' + logoImage}>
                 </img>
                 <div className={classes.IndividualMovieDetails}>
