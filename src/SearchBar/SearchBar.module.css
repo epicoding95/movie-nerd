@@ -17,17 +17,18 @@
 }
 .InputContainer{
     display: flex;
-    margin-right: 37%;
+    margin-right: 5%;
+    width: 80%;
 }
 .InputField{
     height: 2.5rem;
-    width: 350px;
+    width:80%;
     border-radius: 25px;
     border: none;
 	min-height: 50px;
 	background-color: #eee;
     height: auto;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     padding-left: 50px;
  
 }
@@ -57,12 +58,11 @@
     margin-right: 33%;
 }
 .Button{
-    height: 58px;
+    height: 55px;
     width: 100px;
-   background: linear-gradient(rgba(92,151,255,1.0),rgba(92,151,255,1.0));
+    background: linear-gradient(rgba(92,151,255,1.0),rgba(92,151,255,1.0));
     border-radius: 25%;
     border: none;
     margin-left: -50px;
-    margin-bottom: 45px;
     opacity: 1;
 }

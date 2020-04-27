@@ -3,7 +3,7 @@ import classes from './TopComedies.module.css';
 import TopComedy from './TopComedy/TopComedy';
 import axios from 'axios';
 import { MovieContext } from '../Context/MovieContext';
-const TopComedies = () => {
+const TopComedies = ({ urlMatch }) => {
 
     const { newestState, dispatch } = useContext(MovieContext)
     useEffect(() => {
@@ -13,7 +13,7 @@ const TopComedies = () => {
                 console.log(data, 'comedy data')
                 const editedData = data.data.results.map((x) => {
                     return {
-                        id: Math.random(), image: x.poster_path, title: x.title, releaseDate: x.release_date
+                        id: x.id, image: x.poster_path, title: x.title, releaseDate: x.release_date
                     }
                 })
                 console.log(editedData, 'editedData')
@@ -42,6 +42,7 @@ const TopComedies = () => {
                         image={'https://image.tmdb.org/t/p/w500' + movie.image}
                         title={movie.title}
                         releaseDate={movie.releaseDate}
+                        urlMatch={urlMatch}
                     />
                 })}
 

@@ -5,6 +5,7 @@
     position: relative;
     box-sizing: border-box;
     display: flex;
+     /* background: linear-gradient(rgba(92,151,255,1.0),rgba(92,151,255,1.0)); */
     /* background-color:var(--my-color-var) */
 }
 
