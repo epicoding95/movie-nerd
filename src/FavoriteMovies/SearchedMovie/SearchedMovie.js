@@ -8,7 +8,11 @@ const SearchedMovie = ({ image, title, releaseDate, overView, howMany }) => {
     return (
         <>
 
-            <div className={classes.SearchedMoviesDetails}>box conainer for movie details number of listed movies etc {howMany}.</div>
+            <div className={classes.SearchedMoviesDetails}>
+                <div className={classes.SearchedResultsTitle}>Searched Results</div>
+                <div className={classes.SearchedResultsInfo}>Movies <div style={{ backgroundColor: 'lightgray', width: '18px', height: '18px', borderRadius: '5px', paddingLeft: '8px' }}>5</div></div>
+                <div className={classes.SearchedResultsInfo}>Tv Shows <div style={{ backgroundColor: 'lightgray', width: '18px', height: '18px', borderRadius: '5px', paddingLeft: '8px' }}>5</div></div>
+            </div>
 
             <div className={classes.SearchedMovieContainer}>
                 <div className={classes.SeardhedMovieImage}>

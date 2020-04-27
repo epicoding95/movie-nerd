@@ -12,6 +12,26 @@
     margin: 20px 0px;
 }
 
+.SearchedResultsTitle{
+    background: linear-gradient(rgba(92,151,255,0.6),rgba(92,151,255,0.6));
+    color: white;
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    align-self: center;
+    padding-top: 25px;
+    box-sizing: border-box;
+    padding-left: 25%;
+}
+.SearchedResultsInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.5rem 0.4rem;
+
+
+}
+
 .SearchedMovieContainer .SeardhedMovieImage{
     position: absolute;
     top:20;
@@ -23,6 +43,8 @@
 
 .SearchedMoviesDetails{
     position: fixed;
+    display: flex;
+    flex-direction: column;
     left: 0;
     margin-left: 10%;
     margin-top: 4%;

@@ -13,6 +13,7 @@ const SearchBar = () => {
         try {
 
             const data = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en&query=${userInput}`)
+            console.log(data, 'searched ata ib search bar')
             const cleanedData = data.data.results.map((movie) => {
                 return {
                     image: movie.poster_path, title: movie.original_title, releaseDate: movie.release_date, overView: movie.overview

@@ -5,11 +5,9 @@
     align-items: center;
     width: 80%;
     height: 24rem;
-   /* background: linear-gradient(rgba(92,151,255,0.6),rgba(92,151,255,0.6)); */
-    /* margin-top: 4%; */
     position: relative;
     overflow-x: scroll;
-      scrollbar-face-color:blue;
+    scrollbar-face-color:blue;
     scrollbar-shadow-color: #FFFFFF;
     scrollbar-highlight-color: #FFFFFF;
     scrollbar-3dlight-color: #FFFFFF;

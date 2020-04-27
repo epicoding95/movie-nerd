@@ -55,7 +55,7 @@ const IndividualMovie = (props) => {
         console.log(voteAverage)
     }
     let emoji;
-    if (voteAverage > 75) {
+    if (voteAverage > 56) {
         emoji = '👍'
     } else {
         emoji = '💩'

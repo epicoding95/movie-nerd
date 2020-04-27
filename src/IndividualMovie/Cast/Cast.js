@@ -4,7 +4,6 @@ import axios from 'axios';
 import CastMember from './CastMember/CastMember';
 import classes from './Cast.module.css'
 const Cast = () => {
-    const { newestState, dispatch } = useContext(MovieContext)
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
