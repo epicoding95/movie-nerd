@@ -5,7 +5,9 @@ import CastMember from './CastMember/CastMember';
 import classes from './Cast.module.css'
 const Cast = () => {
     const { newestState, dispatch } = useContext(MovieContext)
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const localStorageCast = JSON.parse(localStorage.getItem('filteredCastArray'))
     console.log(localStorageCast, 'castdasdasdads')
     return (

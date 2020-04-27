@@ -67,7 +67,7 @@ const IndividualMovie = (props) => {
     }
     return (
         <>
-            <button onClick={() => history.push('/')}>Home Page</button>
+            <button className={classes.IndividualMovieButton} onClick={() => history.push('/')}>Home Page</button>
             <div style={{
                 backgroundImage: "linear-gradient(rgba(92,151,255,0.6)" + ',' + 'rgba(92,151,255,0.6))' + ',' + "url(" + "https://image.tmdb.org/t/p/w500" + backdropImage + ")",
                 backgroundPosition: 'center',
