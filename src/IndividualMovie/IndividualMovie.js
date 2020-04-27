@@ -8,13 +8,8 @@ const IndividualMovie = (props) => {
     const { newestState, dispatch } = useContext(MovieContext)
     const history = useHistory();
     //name/title/releasedate/genre/length/plot
-    console.log(props.computedMatch.params.id, 'id')
     const paramsId = props.computedMatch.params.id
     const topMovies = newestState.topMovies
-    console.log(topMovies, 'top movies')
-    const filtered = topMovies.find(movie => movie.id == paramsId)
-    console.log(filtered, 'filtered')
-
 
     useEffect(() => {
         const getIndividualDetails = async () => {
@@ -41,7 +36,7 @@ const IndividualMovie = (props) => {
                     filteredDataForCast['cast'] = responseForCast.data.cast
                 }
                 console.log(filteredDataForCast, 'FILTEREDresponseForCast --------------')
-                localStorage.setItem('filteredCastArray', JSON.stringify(filteredDataForCast))
+                localStorage.setItem('filteredCastArray', JSON.stringify(filteredDataForCast.cast))
                 console.log(responseForCast, 'RESPONSE FOR CAST 23@#@#')
                 dispatch({ type: 'ADD_CAST', payload: { cast: filteredDataForCast } })
                 dispatch({ type: 'ADD_INDIVIDUAL_MOVIE_DETAILS', payload: { individualMovieDetails: filteredData } })
@@ -49,7 +44,7 @@ const IndividualMovie = (props) => {
             }
 
             catch (err) {
-                console.log(err)
+                console.log(err, 'image load failed')
             }
         }
         getIndividualDetails();
@@ -65,6 +60,8 @@ const IndividualMovie = (props) => {
     } else {
         emoji = '💩'
     }
+
+
     return (
         <>
             <button className={classes.IndividualMovieButton} onClick={() => history.push('/')}>Home Page</button>

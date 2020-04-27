@@ -28,8 +28,10 @@ const TopComedies = ({ urlMatch }) => {
         getTopMovies();
     }, [dispatch])
 
-    let localStorgeData = [] || ['item'];
-    localStorgeData = JSON.parse(localStorage.getItem('TopComedies'))
+    let localStorgeData = ['localstoragedata'];
+    if (localStorage.getItem('TopComedies') !== null) {
+        localStorgeData = JSON.parse(localStorage.getItem('TopComedies'))
+    }
     console.log(localStorgeData, 'local comedies')
     return (
         <>

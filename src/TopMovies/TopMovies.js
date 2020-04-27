@@ -30,7 +30,10 @@ const TopMovies = ({ urlMatch }) => {
         getTopMovies();
     }, [dispatch])
     let storageMovies = ['storageMovies'];
-    storageMovies = JSON.parse(localStorage.getItem('topMovies'))
+    if (localStorage.getItem('topMovies') !== null) {
+        storageMovies = JSON.parse(localStorage.getItem('topMovies'));
+    }
+
     console.log(storageMovies)
     return (
         <>

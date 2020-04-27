@@ -8,19 +8,23 @@ const Cast = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-    const localStorageCast = JSON.parse(localStorage.getItem('filteredCastArray'))
-    console.log(localStorageCast, 'castdasdasdads')
+    let localStorageCast = ['item'];
+    if (localStorage.getItem('filteredCastArray') !== null) {
+        localStorageCast = JSON.parse(localStorage.getItem('filteredCastArray'))
+        console.log(localStorageCast, 'castdasdasdads')
+    }
+
     return (
         <>
             <div className={classes.CastMembersLabel}>Cast Members</div>
             <div className={classes.CastMembersContainer}>
-                {localStorageCast.cast.map(cast => {
+                {localStorageCast.map(castMember => {
                     return <CastMember
-                        key={cast.id}
-                        id={cast.id}
-                        image={'https://image.tmdb.org/t/p/w500' + cast.profile_path}
-                        name={cast.name}
-                        character={cast.character}
+                        key={Math.random()}
+                        id={castMember.id}
+                        image={'https://image.tmdb.org/t/p/w500' + castMember.profile_path}
+                        name={castMember.name}
+                        character={castMember.character}
                     />
                 })}
             </div>
