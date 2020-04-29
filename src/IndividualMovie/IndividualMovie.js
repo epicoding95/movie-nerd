@@ -9,7 +9,6 @@ const IndividualMovie = (props) => {
     const history = useHistory();
     //name/title/releasedate/genre/length/plot
     const paramsId = props.computedMatch.params.id
-    const topMovies = newestState.topMovies
 
     useEffect(() => {
         const getIndividualDetails = async () => {
@@ -47,6 +46,8 @@ const IndividualMovie = (props) => {
         }
         getIndividualDetails();
     }, [])
+
+    console.log(newestState, 'neweststae')
     let { backdropImage, logoImage, title, genre, overview, runtime, release, releaseYear, voteAverage } = newestState.individualMovieDetails;
     if (voteAverage) {
         voteAverage *= 10
