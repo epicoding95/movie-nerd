@@ -14,6 +14,7 @@ const IndividualMovie = (props) => {
         const getIndividualDetails = async () => {
             try {
                 const response = await axios.get(`https://api.themoviedb.org/3/movie/${paramsId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
+
                 const responseForCast = await axios.get(`https://api.themoviedb.org/3/movie/${paramsId}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
 
                 const filteredData = {};

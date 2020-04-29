@@ -7,7 +7,7 @@ const HomePage = (props) => {
     const urlMatch = props.computedMatch.url
     return (
         <div className={classes.HomePageContainer}>
-            <SearchBar />
+            <SearchBar urlMatch={urlMatch} />
             <TopMovies urlMatch={urlMatch} />
             <TopComedies urlMatch={urlMatch} />
         </div>

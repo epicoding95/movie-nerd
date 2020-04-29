@@ -1,21 +1,18 @@
 .CastMemberContainer{
     height: 12rem;
     width: 8rem;
-   
     margin: 0 20px;
 
 }
-.CastMemberContainer:hover{
-   cursor:pointer;
-}
-
 .RealName{
-height: 20px;
-text-align: center;
-font-size: 1rem;
+    height: 20px;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 10px;
 }
 .CharacterName{
     height: 20px;
-text-align: center;
-font-size: .8rem;
+    text-align: center;
+    font-size: .8rem;
+  
 }

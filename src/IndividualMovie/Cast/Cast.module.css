@@ -9,6 +9,8 @@
     overflow-x: scroll;
     margin: 0 auto;
     margin-bottom: 24px;
+    filter: drop-shadow(16px 16px 15px rgba(0,0,0,0.4));
+    
 }
 
 
@@ -37,5 +39,6 @@
     align-self:flex-start;
     margin-left: 10%;
     padding-top: 50px;
+
 }
 

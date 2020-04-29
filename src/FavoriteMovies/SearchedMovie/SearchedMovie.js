@@ -10,7 +10,6 @@ const SearchedMovie = ({ image, title, releaseDate, overView, howMany }) => {
 
     return (
         <>
-            <div>masdasdasd test</div>
             <div className={classes.SearchedMoviesDetails}>
 
                 <div className={classes.SearchedResultsTitle}>Searched Results</div>
@@ -21,13 +20,13 @@ const SearchedMovie = ({ image, title, releaseDate, overView, howMany }) => {
 
             <div className={classes.SearchedMovieContainer}>
                 <div className={classes.SearchedMovieImage}>
-                    <img style={{ width: '5rem', height: '8.2rem', borderRadius: '5px' }}
+                    <img style={{ width: '5rem', height: '10.3rem', borderRadius: '5px' }}
                         alt='no image'
                         src={image}>
                     </img>
                 </div>
-                <div>{title}</div>
-                <div>{releaseDate}</div>
+                <div className={classes.SearchedMovieTitle}>{title}</div>
+                <div className={classes.SearchedMovieDate}>{releaseDate}</div>
                 <div className={classes.SearchedMovieOverView}>{overView.slice(0, 150)}...</div>
             </div>
         </>

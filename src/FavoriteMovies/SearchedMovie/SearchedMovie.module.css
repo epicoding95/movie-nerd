@@ -4,13 +4,14 @@
     align-items: center;
     justify-content: center;
     width: 50%;
-    height: 8.2rem;
+    height: 10.2rem;
     background-color: white;
     box-shadow: 0px 0px 5px gray;
     border-radius: 5px;
     position: relative;
     margin: 20px 0px;
     font-weight: normal;
+     filter: drop-shadow(16px 16px 15px rgba(0,0,0,0.4));
 }
 
 .SearchedResultsTitle{
@@ -31,6 +32,14 @@
     margin: 0.5rem 0.4rem;
     font-family: 'Times New Roman', Times, serif;
 }
+.SearchedMovieTitle{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.SearchedMovieDate{
+    font-size: 0.8rem;
+
+}
 
 .SearchedMovieContainer .SearchedMovieImage{
     position: absolute;
@@ -39,6 +48,7 @@
 }
 .SearchedMovieOverView{
     margin-left: 5.5rem;
+    margin-top: 10px;
 }
 
 .SearchedMoviesDetails{

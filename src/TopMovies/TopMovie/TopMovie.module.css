@@ -3,6 +3,7 @@
     width: 8rem;
     background-color: white;
     margin: 0 20px;
+    filter: drop-shadow(16px 16px 15px rgba(0,0,0,0.6));
 }
 .TopMovieContainer:hover{
    cursor:pointer;
@@ -12,4 +13,6 @@
 height: 20px;
 text-align: center;
 font-size: 12px;
+margin-top: 10px;
+font-weight: bold;
 }
