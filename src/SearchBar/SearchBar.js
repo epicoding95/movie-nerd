@@ -8,6 +8,7 @@ const SearchBar = () => {
     let history = useHistory();
     const { newestState, dispatch } = useContext(MovieContext)
     const [userInput, setUserInput] = useState('')
+    const [backDrop, setBackDrop] = useState([])
 
     const handleClick = async () => {
         try {
@@ -26,12 +27,31 @@ const SearchBar = () => {
         }
     }
 
+    useEffect(() => {
 
+        getRandomBackdrop()
+    }, [])
+
+    const getRandomBackdrop = async () => {
+        const data = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`)
+
+        const filteredData = data.data.results.map((image) => {
+            return image.backdrop_path
+        })
+        setBackDrop(filteredData)
+    }
 
     return (
         <div
-            className={classes.SearchBarContainer
-            }>
+            className={classes.SearchBarContainer}
+            style={{
+                backgroundImage: "linear-gradient(rgba(92,151,255,0.5)" + ',' + 'rgba(92,151,255,0.5))' + ',' + "url(" + "https://image.tmdb.org/t/p/w500" + backDrop[Math.floor(Math.random() * backDrop.length)] + ")",
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundColor: 'black'
+            }}
+        >
             {/* <div className={classes.SearchBarLabel}>Welcome</div> */}
             <div className={classes.SearchBarInfo}>Start searching to get started!</div>
             <div className={classes.InputContainer}>

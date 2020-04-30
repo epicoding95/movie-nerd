@@ -4,11 +4,11 @@
     justify-content: flex-end;
     align-items: center;
     height: 24rem;
-    width:  90%;
-    background-image: linear-gradient(
+    width:  80%;
+    /* background-image: linear-gradient(
     rgba(75, 119, 190, .50),
       rgba(75, 119, 190, .50)
-    ),url('../assets/images/scarfaceImage.jpeg');
+    ),url('../assets/images/scarfaceImage.jpeg'); */
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -65,4 +65,8 @@
     border: none;
     margin-left: -50px;
     opacity: 1;
+    color:white;
+}
+.Button:hover{
+   color: black;
 }

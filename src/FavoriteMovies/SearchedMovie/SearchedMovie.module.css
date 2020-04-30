@@ -31,6 +31,7 @@
     justify-content: space-between;
     margin: 0.5rem 0.4rem;
     font-family: 'Times New Roman', Times, serif;
+    cursor: auto;
 }
 .SearchedMovieTitle{
     font-size: 1.25rem;
