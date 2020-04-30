@@ -3,6 +3,7 @@
     width: 8rem;
     background-color: white;
     margin: 0 20px;
+    filter: drop-shadow(16px 16px 15px rgba(0,0,0,0.6));
 }
 .TopComedyContainer:hover{
    cursor:pointer;
