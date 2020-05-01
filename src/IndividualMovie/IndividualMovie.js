@@ -9,14 +9,13 @@ const IndividualMovie = (props) => {
     const history = useHistory();
     //name/title/releasedate/genre/length/plot
     const paramsId = props.computedMatch.params.id
-
     useEffect(() => {
         const getIndividualDetails = async () => {
             try {
-                const response = await axios.get(`https://api.themoviedb.org/3/movie/${paramsId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
-
+                const response = await axios.get(`https://api.themoviedb.org/3/movie/${paramsId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&append_to_response=videos`)
+                console.log(response, 'response for cast with videos')
                 const responseForCast = await axios.get(`https://api.themoviedb.org/3/movie/${paramsId}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
-
+                console.log(response.data.videos.results[0].key)
                 const filteredData = {};
                 for (let key in response.data) {
                     filteredData['id'] = response.data.id
@@ -29,6 +28,7 @@ const IndividualMovie = (props) => {
                     filteredData['release'] = response.data.release_date
                     filteredData['releaseYear'] = response.data.release_date.slice(0, 4)
                     filteredData['voteAverage'] = response.data.vote_average
+                    filteredData['movieTrailer'] = response.data.videos.results[0].key
                 }
                 const filteredDataForCast = {}
                 for (let key in responseForCast.data) {
@@ -49,7 +49,7 @@ const IndividualMovie = (props) => {
     }, [])
 
     console.log(newestState, 'neweststae')
-    let { backdropImage, logoImage, title, genre, overview, runtime, release, releaseYear, voteAverage } = newestState.individualMovieDetails;
+    let { backdropImage, logoImage, title, genre, overview, runtime, release, releaseYear, voteAverage, movieTrailer } = newestState.individualMovieDetails;
     if (voteAverage) {
         voteAverage *= 10
     }
@@ -83,6 +83,10 @@ const IndividualMovie = (props) => {
                     <div style={{ display: 'flex' }}>
                         <div className={classes.VoteAverage}>{voteAverage}%</div>
                         <div className={classes.VoteAverageText} >Average Vote {emoji} </div>
+                        <span
+                            onClick={() => window.open(`https://www.youtube.com/watch?v=${movieTrailer}`, '_blank')}
+                            className={classes.PlayButton} ></span>
+                        <div className={classes.PlayButtonText}> Play Trailer</div>
                     </div>
                     <strong className={classes.IndividualMovieOverView}>Overview</strong>
                     <div className={classes.IndividualMovieOverViewContinued} >{overview}</div>

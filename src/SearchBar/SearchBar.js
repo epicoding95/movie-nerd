@@ -12,7 +12,6 @@ const SearchBar = () => {
     const [backDrop, setBackDrop] = useState([])
     const [spinnerIcon, setSpinnerIcon] = useState(false)
     const [changeDrop, setChangeDrop] = useState(['/zTxHf9iIOCqRbxvl8W5QYKrsMLq.jpg'])
-    console.log(changeDrop, 'change sdrop')
     const handleClick = async () => {
         try {
             const data = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en&query=${userInput}`)
@@ -41,12 +40,13 @@ const SearchBar = () => {
             })
             setSpinnerIcon(false)
             setBackDrop(filteredData)
-            setChangeDrop(filteredData)
+            // setChangeDrop(filteredData)
         }
         getRandomBackdrop()
+        return () => clearInterval(interval)
     }, [])
 
-    setInterval(() => {
+    const interval = setInterval(() => {
         setChangeDrop(backDrop)
     }, 10000)
 
