@@ -54,12 +54,13 @@
 .PlayButton{
     margin-top: 15px;
     margin-left: 45px;
-    width: 40px;
+    width: 30px;
     background:url('https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-175-play-806cb05551791b8dedd7f8d38fd3bd806e2d397fcfeaa00a5cc9129f0819fd07.svg') center no-repeat;
     cursor: pointer;
 }
 .PlayButtonText{
     margin-top: 38px;
+    margin-left: 5px;
 }
 
 .IndividualMovieOverView{
@@ -81,7 +82,8 @@
     border-radius:10px;
     border: none;
     opacity: 1;
-    
+    font-weight: bolder;
+    color: white;
 }
 
 

@@ -17,4 +17,11 @@
     border-radius:10px;
     border: none;
     opacity: 1;
+    color:white;
+    font-weight:bolder;
+
+}
+.FavoriteMoviesButton:hover{
+    color: black;
+    
 }

@@ -6,7 +6,7 @@ const initialState = {
     individualMovieDetails: {},
     searchedMovies: [],
     comedyMovies: [],
-    castObject: {}
+    castObject: {},
 }
 const movieReducer = (state, action) => {
     switch (action.type) {

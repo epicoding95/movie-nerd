@@ -7,11 +7,10 @@ import { useHistory } from 'react-router-dom';
 const FavoriteMovies = () => {
     const { newestState, dispatch } = useContext(MovieContext)
     let history = useHistory();
-
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+    console.log(newestState, 'favotite movies page')
     return (
         <div className={classes.FavoriteMoviesContainer}>
             <h1></h1>
@@ -24,7 +23,7 @@ const FavoriteMovies = () => {
                     title={movie.title}
                     releaseDate={movie.releaseDate}
                     overView={movie.overView}
-                    howMany={newestState.searchedMovies.length}
+                    mediaType={movie.mediaType}
                 />
             })}
 
