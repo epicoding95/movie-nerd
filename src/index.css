@@ -42,17 +42,22 @@ body::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
-
+.SpinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .lds-ring {
   display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;
-
+  left:50;
+  top: 50;
 }
+
 .lds-ring div {
   box-sizing: border-box;
-  display: block;
   position: absolute;
   width: 64px;
   height: 64px;

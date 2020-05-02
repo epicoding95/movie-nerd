@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import TopMovies from '../TopMovies/TopMovies';
 import classes from './HomePage.module.css';
